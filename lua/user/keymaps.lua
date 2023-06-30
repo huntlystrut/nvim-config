@@ -3,7 +3,7 @@ vim.g.maplocalleader = ' '
 -- stop space from moving the cursor in normal/visual mode
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
-vim.keymap.set("n", "<leader>m", "<cmd>lua CleanCSS()<CR>")
+vim.keymap.set("n", "<leader>m", "<cmd>lua MinifySourceFile()<CR>")
 
 
 vim.keymap.set('n', '<leader><leader>l', '<cmd>nohlsearch<CR>')
