@@ -101,9 +101,6 @@ vim.keymap.set("n", "<leader>l", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>
 vim.keymap.set("n", "<leader>;", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
 vim.keymap.set("n", "<leader>,", "<cmd>lua require('harpoon.ui').nav_next()<cr>")
 vim.keymap.set("n", "<leader>.", "<cmd>lua require('harpoon.ui').nav_prev()<cr>")
--- harpoon goto tmux windows
-vim.keymap.set("n", "<leader>hb", "<cmd>lua require('harpoon.tmux').gotoTerminal(2)<cr>")
-vim.keymap.set("n", "<leader>hg", "<cmd>lua require('harpoon.tmux').gotoTerminal(3)<cr>")
 
 -- trouble and todo trouble
 vim.keymap.set("n", "<leader>tt", "<cmd>TroubleToggle<cr>")
@@ -113,5 +110,17 @@ vim.keymap.set("v", "<leader>ga", "<cmd>EasyAlign<cr>")
 vim.keymap.set("n", "<leader>ga", "<cmd>EasyAlign<cr>")
 
 -- copilot
-vim.keymap.set('i', '<M-.>', '<Plug>(copilot-next)')
-vim.keymap.set('i', '<M-,>', '<Plug>(copilot-previous)')
+vim.keymap.set('i', '<C-.>', '<Plug>(copilot-next)')
+vim.keymap.set('i', '<C-,>', '<Plug>(copilot-previous)')
+
+
+-- refactoring.nvim
+vim.keymap.set("x", "<leader>re", ":Refactor extract ")
+vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
+
+vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
+
+vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+
+vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
+vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")

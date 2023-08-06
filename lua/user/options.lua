@@ -241,3 +241,4 @@ tabnine:setup({
 
 
 require('Comment').setup()
+require('refactoring').setup()

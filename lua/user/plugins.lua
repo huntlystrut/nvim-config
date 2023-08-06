@@ -23,6 +23,13 @@ packer.startup(function()
 
     -- misc
     use 'junegunn/vim-easy-align'
+    use {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            {"nvim-lua/plenary.nvim"},
+            {"nvim-treesitter/nvim-treesitter"}
+        }
+    }
     use 'ThePrimeagen/harpoon'
     use 'kdheepak/lazygit.nvim'
     use 'tpope/vim-fugitive'
