@@ -33,45 +33,45 @@ vim.keymap.set("n", "<esc>", function()
 end, { silent = true, desc = "Remove Search Highlighting, Dismiss Popups" })
 
 -- vim quick wins
-vim.keymap.set('n', '<leader>w', '<cmd>w<CR>')
-vim.keymap.set('n', '<leader>q', '<cmd>q<CR>')
-vim.keymap.set('n', '<leader>c', '<cmd>clo<CR>')
-vim.keymap.set('n', "<leader>y", "\"+y")
-vim.keymap.set('v', "<leader>y", "\"+y")
-vim.keymap.set('n', "<leader>Y", "\"+Y")
-vim.keymap.set('n', "Y", "yg$")
-vim.keymap.set('n', "n", "nzzzv")
-vim.keymap.set('n', "N", "Nzzzv")
-vim.keymap.set('n', "J", "mzJ`z")
-vim.keymap.set('n', "<C-d>", "<C-d>zz")
-vim.keymap.set('n', "<C-u>", "<C-u>zz")
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>') -- save
+vim.keymap.set('n', '<leader>q', '<cmd>q<CR>') -- quit
+vim.keymap.set('n', '<leader>c', '<cmd>clo<CR>') -- close buffer
+vim.keymap.set('n', '<leader>cab', '<cmd>%bd|e#<CR>') -- close all other buffers except current
+vim.keymap.set('v', "<leader>y", "\"+y") -- copy to system clipboard
+vim.keymap.set('n', "<leader>Y", "\"+Y") -- copy to system clipboard
+vim.keymap.set('n', "Y", "yg$") -- copy to end of line
+vim.keymap.set('n', "n", "nzzzv") -- center on search next
+vim.keymap.set('n', "N", "Nzzzv") -- center on search prev
+vim.keymap.set('n', "J", "mzJ`z") -- join lines without moving cursor
+vim.keymap.set('n', "<C-d>", "<C-d>zz") -- scroll down but keep cursor in same place
+vim.keymap.set('n', "<C-u>", "<C-u>zz") -- scroll up but keep cursor in same place
 
--- windwo movement
-vim.keymap.set('n', "<C-h>", "<C-w>h")
-vim.keymap.set('n', "<C-j>", "<C-w>j")
-vim.keymap.set('n', "<C-k>", "<C-w>k")
-vim.keymap.set('n', "<C-l>", "<C-w>l")
+-- window navigation
+vim.keymap.set('n', "<C-h>", "<C-w>h") -- move to left window
+vim.keymap.set('n', "<C-j>", "<C-w>j") -- move to bottom window
+vim.keymap.set('n', "<C-k>", "<C-w>k") -- move to top window
+vim.keymap.set('n', "<C-l>", "<C-w>l") -- move to right window
 
+-- buffer navigation
+vim.keymap.set('n', '<leader>bn', '<cmd>bnext<CR>') -- next buffer
+vim.keymap.set('n', '<leader>[', '<cmd>bnext<CR>') -- next buffer
 
-vim.keymap.set('n', '<leader>bn', '<cmd>bnext<CR>')
-vim.keymap.set('n', '<leader>[', '<cmd>bnext<CR>')
+vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<CR>') -- previous buffer
+vim.keymap.set('n', '<leader>]', '<cmd>bprevious<CR>') -- previous buffer
 
-vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<CR>')
-vim.keymap.set('n', '<leader>]', '<cmd>bprevious<CR>')
+vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv") -- move line down in visual mode
+vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv") -- move line up in visual mode
 
-vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv")
-
-vim.keymap.set('n', '<leader>=', '<cmd>Neoformat<CR>')
+vim.keymap.set('n', '<leader>=', '<cmd>Neoformat<CR>') -- format code
 
 -- packer
-vim.keymap.set('n', '<leader>ps', '<cmd>PackerSync<CR>')
+vim.keymap.set('n', '<leader>ps', '<cmd>PackerSync<CR>') -- sync packer
 
 -- winpick
-vim.keymap.set('n', '<leader>s', "<cmd>lua require('nvim-window').pick()<CR>")
+vim.keymap.set('n', '<leader>s', "<cmd>lua require('nvim-window').pick()<CR>") -- pick window
 
 -- vimtree
-vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>') -- toggle tree
 
 -- lazygit
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>")
@@ -79,12 +79,12 @@ vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>")
 -- Telescope FTFW
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope git_files<cr>") -- files tracked in git (good for ignoring node_modules)
 vim.keymap.set("n", "<leader>fF", "<cmd>Telescope find_files<cr>") -- finds everythign regardless of git status
-vim.keymap.set("n", "<leader>f*", "<cmd>Telescope grep_string<cr>")
-vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
-vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-vim.keymap.set("n", "<leader>fm", "<cmd>Telescope marks<cr>")
-vim.keymap.set("n", "<leader>fr", "<cmd>Telescope registers<cr>")
-vim.keymap.set("n", "<leader>f.", "<cmd>Telescope current_buffer_fuzzy_find<cr>")
+vim.keymap.set("n", "<leader>f*", "<cmd>Telescope grep_string<cr>") -- search for string in project
+vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- search for string in project
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- search for buffer
+vim.keymap.set("n", "<leader>fm", "<cmd>Telescope marks<cr>") -- search for marks
+vim.keymap.set("n", "<leader>fr", "<cmd>Telescope registers<cr>") -- search for registers
+vim.keymap.set("n", "<leader>f.", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- search in current buffer
 
 -- harpoon keymaps
 vim.keymap.set("n", "<leader>hw", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
