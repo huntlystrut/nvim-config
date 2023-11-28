@@ -47,6 +47,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr,"n", "<leader>gp", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr,"n", "<leader>gtr", "<cmd>Telescope lsp_references<cr>", opts)
     vim.api.nvim_buf_set_keymap(bufnr,"n", "<leader>gl", "<cmd>Telescope diagnostics<cr>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr,"n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
     require "lsp_signature".on_attach(signature_setup, bufnr)  -- Note: add in lsp client on-attach
 
@@ -239,6 +240,15 @@ tabnine:setup({
 })
 
 
-
 require('Comment').setup()
 require('refactoring').setup()
+
+
+require('lualine').setup {
+    options = {
+        theme = "catppuccin"
+        -- ... the rest of your lualine config
+    }
+}
+
+ require("symbols-outline").setup()

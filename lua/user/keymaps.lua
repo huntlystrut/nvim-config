@@ -35,7 +35,7 @@ end, { silent = true, desc = "Remove Search Highlighting, Dismiss Popups" })
 -- vim quick wins
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>') -- save
 vim.keymap.set('n', '<leader>q', '<cmd>q<CR>') -- quit
-vim.keymap.set('n', '<leader>c', '<cmd>clo<CR>') -- close buffer
+vim.keymap.set('n', '<leader>cb', '<cmd>clo<CR>') -- close buffer
 vim.keymap.set('n', '<leader>cab', '<cmd>%bd|e#<CR>') -- close all other buffers except current
 vim.keymap.set('v', "<leader>y", "\"+y") -- copy to system clipboard
 vim.keymap.set('n', "<leader>Y", "\"+Y") -- copy to system clipboard
@@ -73,12 +73,14 @@ vim.keymap.set('n', '<leader>s', "<cmd>lua require('nvim-window').pick()<CR>") -
 -- vimtree
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>') -- toggle tree
 
+
 -- lazygit
 vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>")
 
 -- Telescope FTFW
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope git_files<cr>") -- files tracked in git (good for ignoring node_modules)
 vim.keymap.set("n", "<leader>fF", "<cmd>Telescope find_files<cr>") -- finds everythign regardless of git status
+vim.keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>") -- search for diagnostics in current buffer
 vim.keymap.set("n", "<leader>f*", "<cmd>Telescope grep_string<cr>") -- search for string in project
 vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- search for string in project
 vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- search for buffer
@@ -109,9 +111,15 @@ vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<cr>")
 vim.keymap.set("v", "<leader>ga", "<cmd>EasyAlign<cr>")
 vim.keymap.set("n", "<leader>ga", "<cmd>EasyAlign<cr>")
 
+-- comment
+vim.keymap.set('v', '<leader>k', '<Plug>comment_toggle_linewise', {noremap = false})
+vim.keymap.set('n', '<leader>k', '<Plug>comment_toggle_linewise', {noremap = false})
+
 -- copilot
-vim.keymap.set('i', '<C-.>', '<Plug>(copilot-next)')
-vim.keymap.set('i', '<C-,>', '<Plug>(copilot-previous)')
+vim.keymap.set('i', '<C-.>', '<Plug>copilot-next', {noremap = false})
+vim.keymap.set('i', '<C-,>', '<Plug>copilot-previous', {noremap = false})
+
+
 
 
 -- refactoring.nvim
@@ -124,3 +132,9 @@ vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
 
 vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
 vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
+
+
+vim.keymap.set("n", "<leader>a", "<cmd>SymbolsOutline<CR>")
+
+-- oil, open current file parent directory
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

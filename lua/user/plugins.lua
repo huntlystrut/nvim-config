@@ -8,6 +8,19 @@ local packer = require 'lib.packer-init'
 packer.startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use{
+        "stevearc/oil.nvim",
+        config = function()
+            require("oil").setup()
+        end
+    }
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+
+    use 'lewis6991/gitsigns.nvim'
 
     use 'yorickpeterse/nvim-window'
 
@@ -35,6 +48,7 @@ packer.startup(function()
     use 'tpope/vim-fugitive'
     use 'tpope/vim-surround'
     use 'numToStr/Comment.nvim'
+    use 'simrat39/symbols-outline.nvim'
     use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
